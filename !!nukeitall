@@ -1,0 +1,12 @@
+vagrant destroy -f
+rm Vagrantfile
+rm -rf output-ubuntu1604-desktop-virtualbox-iso
+rm -rf output-ubuntu17101-desktop-virtualbox-iso
+rm -rf ./box/virtualbox/*
+rm -rf ./packer_cache/*
+rm -rf ~/VirtualBox\ VMs/kenmcgowan-ubuntu_default_*
+rm -rf ~/VirtualBox\ VMs/ubuntu17101-desktop
+rm -rf ~/VirtualBox\ VMs/ubuntu1604-desktop
+rm -rf ~/VirtualBox\ VMs/00_default_*
+rm -rf ~/.vagrant.d/boxes/*ubuntu1604-*
+rm -rf ~/.vagrant.d/boxes/*ubuntu17101-*
