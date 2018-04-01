@@ -4,6 +4,8 @@
 
 This repository contains [Packer](https://packer.io/) templates for creating Ubuntu Vagrant boxes.
 
+> **Note**: While this project is derived from boxcutter, my intent is to maintain it as a completely separate effort, stripping it down and refactoring it to serve my own purposes. If you're looking for a good starting point to build ubuntu boxes using vagrant and packer, I strongly suggest you start with [boxcutter](https://github.com/boxcutter) instead.
+
 ## Current Boxes
 
 64-bit boxes:
