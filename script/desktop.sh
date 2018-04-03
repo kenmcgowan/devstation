@@ -25,13 +25,8 @@ echo "==> Checking version of Ubuntu"
 if [[ $DISTRIB_RELEASE == 12.04 ]]; then
 
     configure_ubuntu1204_autologin
-elif [[ $DISTRIB_RELEASE == 14.04 || $DISTRIB_RELEASE == 15.04 || $DISTRIB_RELEASE == 16.04 || $DISTRIB_RELEASE == 16.10 || $DISTRIB_RELEASE == 17.04 || $DISTRIB_RELEASE == 17.10 || $DISTRIB_RELEASE == 17.10.1 ]]; then
-    # Possible fix for possible bug with network manager install/config.
-    sudo apt-get install -y network-manager
-    sudo systemctl start NetworkManager
-
+elif [[ $DISTRIB_RELEASE == 14.04 || $DISTRIB_RELEASE == 15.04 || $DISTRIB_RELEASE == 16.04 || $DISTRIB_RELEASE == 16.10 || $DISTRIB_RELEASE == 17.04 || $DISTRIB_RELEASE == 17.10 ]]; then
     echo "==> Installing ubuntu-desktop"
-    # sudo apt-get install -y --no-install-recommends ubuntu-desktop
     sudo apt-get install -y ubuntu-desktop
 
     USERNAME=${SSH_USER}
