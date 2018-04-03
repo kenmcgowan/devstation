@@ -1,3 +1,1 @@
-gsettings set org.gnome.shell favorite-apps "['atom.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'google-chrome.desktop']"
-gsettings set org.gnome.desktop.interface enable-animations false
-sudo mv /usr/local/bin/devstation-config-ui-nonce /usr/local/bin/devstation-config-ui
+gsettings set org.gnome.shell favorite-apps "['atom.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'google-chrome.desktop']" && gsettings set org.gnome.desktop.interface enable-animations false && sudo mv /usr/local/bin/devstation-config-ui-nonce /usr/local/bin/devstation-config-ui
