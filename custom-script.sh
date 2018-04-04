@@ -26,9 +26,12 @@ sudo add-apt-repository -y ppa:webupd8team/java
 # Prep for installing the Atom text editor
 sudo add-apt-repository -y ppa:webupd8team/atom
 
-# Now actually do all the installs
+# Make sure everything is up to date, including system updates.
 sudo apt-get update -y
 sudo apt-get upgrade -y
+#sudo apt-get dist-upgrade -y
+
+# Now actually do all the installs
 sudo apt-get install -y -q oracle-java8-installer
 sudo apt-get install -y -q oracle-java8-set-default
 sudo apt-get install -y -q docker-ce
@@ -36,16 +39,8 @@ sudo apt-get install -y -q google-chrome-stable
 sudo apt-get install -y -q atom
 sudo apt-get install -y -q git
 
-# Manage users
-# sudo groupadd docker
-# sudo usermod -aG docker ubuntu
-# sudo usermod -aG vagrant docker
-
-# Start services
-#sudo systemctl enable docker
-
 # Remove LibreOffice apps
-###sudo apt-get remove -y --purge libreoffice*
+sudo apt-get remove -y --purge libreoffice*
 
 sudo apt-get clean -y
 sudo apt-get autoremove -y
