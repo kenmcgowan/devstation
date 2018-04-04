@@ -20,9 +20,14 @@ Vagrant.configure("2") do |config|
 
     config.vm.provision "file", source: "./resources/devstation-config-ui-nonce", destination: "/home/vagrant/devstation-config-ui-nonce"
 
-    config.vm.provision "shell", inline: "sudo mv /home/vagrant/devstation-config-ui-nonce /usr/local/bin/devstation-config-ui-nonce"
-    config.vm.provision "shell", inline: "sudo chmod +x /usr/local/bin/devstation-config-ui-nonce"
-    config.vm.provision "shell", inline: "echo \"[ -f /usr/local/bin/devstation-config-ui-nonce ] && devstation-config-ui-nonce\" >> /home/vagrant/.profile"
+    $script = <<-SCRIPT
+    echo "alias docker=\\\"sudo /usr/bin/docker\\\"" >> /home/vagrant/.bashrc
+    sudo mv /home/vagrant/devstation-config-ui-nonce /usr/local/bin/devstation-config-ui-nonce
+    sudo chmod +x /usr/local/bin/devstation-config-ui-nonce
+    echo \"[ -f /usr/local/bin/devstation-config-ui-nonce ] && devstation-config-ui-nonce\" >> /home/vagrant/.profile
+    SCRIPT
+
+    config.vm.provision "shell", inline: $script
 
     ["vmware_fusion", "vmware_workstation"].each do |provider|
       config.vm.provider provider do |v, override|
