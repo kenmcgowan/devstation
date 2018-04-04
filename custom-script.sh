@@ -29,7 +29,7 @@ sudo add-apt-repository -y ppa:webupd8team/atom
 # Make sure everything is up to date, including system updates.
 sudo apt-get update -y
 sudo apt-get upgrade -y
-#sudo apt-get dist-upgrade -y
+sudo apt-get dist-upgrade -y
 
 # Now actually do all the installs
 sudo apt-get install -y -q oracle-java8-installer
