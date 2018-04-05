@@ -10,6 +10,9 @@ echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-se
 # Possible fix for bug that prevents apt-transport-https from being installed
 sudo systemctl start NetworkManager
 
+# Remove LibreOffice apps
+sudo apt-get remove -y --purge libreoffice*
+
 sudo apt-get install -y -q apt-transport-https ca-certificates curl software-properties-common
 
 # Get the Google Chrome package
@@ -23,6 +26,12 @@ sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/u
 # Prep for installing Java 8
 sudo add-apt-repository -y ppa:webupd8team/java
 
+# Prep for installing .NET Core 2
+sudo apt-get install -y -q libunwind8 liblttng-ust0 libcurl3 libssl1.0.0 libuuid1 libkrb5-3 zlib1g libicu57
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main" > /etc/apt/sources.list.d/dotnetdev.list'
+
 # Prep for installing the Atom text editor
 sudo add-apt-repository -y ppa:webupd8team/atom
 
@@ -32,15 +41,13 @@ sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
 
 # Now actually do all the installs
+sudo apt-get install -y -q docker-ce
+sudo apt-get install -y -q dotnet-sdk-2.1.4
 sudo apt-get install -y -q oracle-java8-installer
 sudo apt-get install -y -q oracle-java8-set-default
-sudo apt-get install -y -q docker-ce
 sudo apt-get install -y -q google-chrome-stable
 sudo apt-get install -y -q atom
 sudo apt-get install -y -q git
-
-# Remove LibreOffice apps
-sudo apt-get remove -y --purge libreoffice*
 
 sudo apt-get clean -y
 sudo apt-get autoremove -y
