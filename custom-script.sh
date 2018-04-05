@@ -61,6 +61,8 @@ sudo apt-get install -y -q dotnet-sdk-2.1.4
 sudo apt-get install -y -q oracle-java8-installer
 sudo apt-get install -y -q oracle-java8-set-default
 sudo apt-get install -y -q sbt
+sudo apt-get install -y -q nodejs
+sudo apt-get install -y -q npm
 sudo apt-get install -y -q google-chrome-stable
 sudo apt-get install -y -q atom
 sudo apt-get install -y -q git
