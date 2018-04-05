@@ -44,6 +44,11 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89
 # Prep for installing the Atom text editor
 sudo add-apt-repository -y ppa:webupd8team/atom
 
+# Prep for installing VS Code
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+
 ################################################################################
 # Update apt repos
 ################################################################################
@@ -65,6 +70,7 @@ sudo apt-get install -y -q nodejs
 sudo apt-get install -y -q npm
 sudo apt-get install -y -q google-chrome-stable
 sudo apt-get install -y -q atom
+sudo apt-get install -y -q code
 sudo apt-get install -y -q git
 
 ################################################################################
