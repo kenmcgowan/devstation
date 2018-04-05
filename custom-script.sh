@@ -49,6 +49,9 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
+# Prep for installing IntelliJ Idea
+sudo add-apt-repository -y ppa:mmk2410/intellij-idea
+
 ################################################################################
 # Update apt repos
 ################################################################################
@@ -71,6 +74,7 @@ sudo apt-get install -y -q npm
 sudo apt-get install -y -q google-chrome-stable
 sudo apt-get install -y -q atom
 sudo apt-get install -y -q code
+sudo apt-get install -y -q intellij-idea-community
 sudo apt-get install -y -q git
 
 ################################################################################
