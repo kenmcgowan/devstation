@@ -54,7 +54,7 @@ sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
 
 ################################################################################
-# Installations
+# apt installs
 ################################################################################
 sudo apt-get install -y -q docker-ce
 sudo apt-get install -y -q dotnet-sdk-2.1.4
@@ -66,6 +66,12 @@ sudo apt-get install -y -q npm
 sudo apt-get install -y -q google-chrome-stable
 sudo apt-get install -y -q atom
 sudo apt-get install -y -q git
+
+################################################################################
+# NPM installs
+################################################################################
+
+sudo npm install -g create-react-app
 
 ################################################################################
 # Post-Install Initializations
