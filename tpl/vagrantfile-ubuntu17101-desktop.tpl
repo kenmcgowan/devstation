@@ -20,8 +20,19 @@ Vagrant.configure("2") do |config|
 
     config.vm.provision "file", source: "./resources/devstation-config-ui-nonce", destination: "/home/vagrant/devstation-config-ui-nonce"
 
+    if (File.exist?("./ssh/id_rsa"))
+      config.vm.provision "file", source: "./ssh/id_rsa", destination: "/home/vagrant/.ssh/id_rsa"
+    end
+
     $script = <<-SCRIPT
+    # Add automatic login to github via ssh. This will prompt for the private key password
+    [ -f /home/vagrant/.ssh/id_rsa ] && sudo chmod 600 /home/vagrant/.ssh/id_rsa
+    echo "[ -f ~/.ssh/id_rsa ] && eval \\\`ssh-agent -s\\\` && ssh-add ~/.ssh/id_rsa" >> /home/vagrant/.bashrc
+
+    # Add an alias for docker so we don't have to sudo all the time
     echo "alias docker=\\\"sudo /usr/bin/docker\\\"" >> /home/vagrant/.bashrc
+
+    # Set up the UI config "nonce" script to run once & set up our icons, desktop prefs, etc.
     sudo mv /home/vagrant/devstation-config-ui-nonce /usr/local/bin/devstation-config-ui-nonce
     sudo chmod +x /usr/local/bin/devstation-config-ui-nonce
     echo \"[ -f /usr/local/bin/devstation-config-ui-nonce ] && devstation-config-ui-nonce\" >> /home/vagrant/.profile

@@ -22,3 +22,5 @@ logs/*
 *log*.txt
 todo.txt
 Vagrantfile
+
+ssh/*

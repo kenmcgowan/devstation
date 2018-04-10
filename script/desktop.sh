@@ -28,6 +28,7 @@ if [[ $DISTRIB_RELEASE == 12.04 ]]; then
 elif [[ $DISTRIB_RELEASE == 14.04 || $DISTRIB_RELEASE == 15.04 || $DISTRIB_RELEASE == 16.04 || $DISTRIB_RELEASE == 16.10 || $DISTRIB_RELEASE == 17.04 || $DISTRIB_RELEASE == 17.10 ]]; then
     echo "==> Installing ubuntu-desktop"
     sudo apt-get install -y ubuntu-desktop
+    # sudo apt-get install -y --no-install-recommends ubuntu-desktop
 
     USERNAME=${SSH_USER}
     LIGHTDM_CONFIG=/etc/lightdm/lightdm.conf
