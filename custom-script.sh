@@ -65,7 +65,7 @@ sudo apt-get dist-upgrade -y
 # apt installs
 ################################################################################
 sudo apt-get install -y -q docker-ce
-sudo apt-get install -y -q dotnet-sdk-2.1.4
+sudo apt-get install -y -q dotnet-sdk-2.1.104
 sudo apt-get install -y -q oracle-java8-installer
 sudo apt-get install -y -q oracle-java8-set-default
 sudo apt-get install -y -q sbt
