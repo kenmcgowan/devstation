@@ -152,7 +152,8 @@
       "keep_input_artifact": false,
       "output": "box/{{.Provider}}/{{user `vm_name`}}-{{user `version`}}.box",
       "type": "vagrant",
-      "vagrantfile_template": "{{ user `vagrantfile_template` }}"
+      "vagrantfile_template": "{{ user `vagrantfile_template` }}",
+      "include": [ "./box-includes/devstation-config-ui-nonce" ]
     }
   ],
   "provisioners": [
