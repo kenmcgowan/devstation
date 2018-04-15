@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
         v.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
     end
 
-    config.vm.provision "file", source: "./resources/devstation-config-ui-nonce", destination: "/home/vagrant/devstation-config-ui-nonce"
+    config.vm.provision "file", source: File.join(File.expand_path(File.dirname(__FILE__)), "devstation-config-ui-nonce"), destination: "/home/vagrant/devstation-config-ui-nonce"
 
     if (File.exist?("./ssh/id_rsa"))
       config.vm.provision "file", source: "./ssh/id_rsa", destination: "/home/vagrant/.ssh/id_rsa"
