@@ -1,4 +1,5 @@
 vagrant destroy -f
+vagrant box remove devstation
 rm Vagrantfile
 rm -rf output-ubuntu1604-desktop-virtualbox-iso
 rm -rf output-ubuntu17101-desktop-virtualbox-iso
@@ -10,3 +11,4 @@ rm -rf ~/VirtualBox\ VMs/ubuntu1604-desktop
 rm -rf ~/VirtualBox\ VMs/00_default_*
 rm -rf ~/.vagrant.d/boxes/*ubuntu1604-*
 rm -rf ~/.vagrant.d/boxes/*ubuntu17101-*
+rm -rf ~/.vagrant.d/boxes/devstation

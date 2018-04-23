@@ -1,0 +1,2 @@
+vagrant destroy -f
+vagrant box remove devstation -f
