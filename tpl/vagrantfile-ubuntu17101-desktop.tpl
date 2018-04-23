@@ -25,6 +25,19 @@ Vagrant.configure("2") do |config|
     end
 
     $script = <<-SCRIPT
+    # Configure git user name and email, if available
+    if [ "$devstation_git_user_name" ]
+    then
+      echo "Setting git user name to $devstation_git_user_name"
+      git config --f /home/vagrant/.gitconfig user.name "$devstation_git_user_name"
+    fi
+
+    if [ "$devstation_git_user_email" ]
+    then
+      echo "Setting git user name to $devstation_git_user_email"
+      git config --f /home/vagrant/.gitconfig user.email "$devstation_git_user_email"
+    fi
+
     # Add automatic login to github via ssh. This will prompt for the private key password
     [ -f /home/vagrant/.ssh/id_rsa ] && sudo chmod 600 /home/vagrant/.ssh/id_rsa
     echo "[ -f ~/.ssh/id_rsa ] && eval \\\`ssh-agent -s\\\` && ssh-add ~/.ssh/id_rsa" >> /home/vagrant/.bashrc
@@ -38,7 +51,10 @@ Vagrant.configure("2") do |config|
     echo \"[ -f /usr/local/bin/devstation-config-ui-nonce ] && devstation-config-ui-nonce\" >> /home/vagrant/.profile
     SCRIPT
 
-    config.vm.provision "shell", inline: $script
+    config.vm.provision "shell", inline: $script, env: {
+      "devstation_git_user_name" => ENV["devstation_git_user_name"],
+      "devstation_git_user_email" => ENV["devstation_git_user_email"]
+    }
 
     ["vmware_fusion", "vmware_workstation"].each do |provider|
       config.vm.provider provider do |v, override|
