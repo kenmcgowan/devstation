@@ -38,6 +38,15 @@ Vagrant.configure("2") do |config|
       git config --f /home/vagrant/.gitconfig user.email "$devstation_git_user_email"
     fi
 
+    echo "Setting Meld as the git difftool"
+    git config --f /home/vagrant/.gitconfig diff.tool meld
+    git config --f /home/vagrant/.gitconfig difftool.prompt false
+    git config --f /home/vagrant/.gitconfig difftool.meld.cmd 'meld "$LOCAL" "$REMOTE"'
+
+    echo "Setting Meld as the git mergetool"
+    git config --f /home/vagrant/.gitconfig merge.tool meld
+    git config --f /home/vagrant/.gitconfig mergetool.meld '"$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"'
+
     # Add automatic login to github via ssh. This will prompt for the private key password
     [ -f /home/vagrant/.ssh/id_rsa ] && sudo chmod 600 /home/vagrant/.ssh/id_rsa
     echo "[ -f ~/.ssh/id_rsa ] && eval \\\`ssh-agent -s\\\` && ssh-add ~/.ssh/id_rsa" >> /home/vagrant/.bashrc

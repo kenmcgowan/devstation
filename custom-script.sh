@@ -75,6 +75,7 @@ sudo apt-get install -y -q atom
 sudo apt-get install -y -q code
 sudo apt-get install -y -q intellij-idea-community
 sudo apt-get install -y -q git
+sudo apt-get install -y -q meld
 
 ################################################################################
 # NPM installs
