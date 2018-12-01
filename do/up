@@ -1,0 +1,4 @@
+#!/bin/bash
+vagrant box add box/virtualbox/ubuntu1804-desktop-0.1.0.box --name devstation
+vagrant init devstation
+vagrant up

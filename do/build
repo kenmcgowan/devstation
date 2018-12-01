@@ -1,0 +1,3 @@
+#!/bin/bash
+log_timestamp=$(date +%Y%m%d%H%M%S%N)
+packer build -only=virtualbox-iso -var-file=ubuntu1804-desktop.json ubuntu.json 2>&1 | tee logs/log${log_timestamp}.txt

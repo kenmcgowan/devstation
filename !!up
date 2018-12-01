@@ -1,3 +1,0 @@
-vagrant box add box/virtualbox/ubuntu17101-desktop-0.1.0.box --name devstation
-vagrant init devstation
-vagrant up

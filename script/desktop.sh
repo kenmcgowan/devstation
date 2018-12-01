@@ -23,9 +23,8 @@ echo "==> Checking version of Ubuntu"
 . /etc/lsb-release
 
 if [[ $DISTRIB_RELEASE == 12.04 ]]; then
-
     configure_ubuntu1204_autologin
-elif [[ $DISTRIB_RELEASE == 14.04 || $DISTRIB_RELEASE == 15.04 || $DISTRIB_RELEASE == 16.04 || $DISTRIB_RELEASE == 16.10 || $DISTRIB_RELEASE == 17.04 || $DISTRIB_RELEASE == 17.10 ]]; then
+elif [[ $DISTRIB_RELEASE == 14.04 || $DISTRIB_RELEASE == 15.04 || $DISTRIB_RELEASE == 16.04 || $DISTRIB_RELEASE == 16.10 || $DISTRIB_RELEASE == 17.04 || $DISTRIB_RELEASE == 17.10 || $DISTRIB_RELEASE == 18.04 ]]; then
     echo "==> Installing ubuntu-desktop"
     sudo apt-get install -y ubuntu-desktop
     # sudo apt-get install -y --no-install-recommends ubuntu-desktop
